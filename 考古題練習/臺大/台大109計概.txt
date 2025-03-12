@@ -1,0 +1,47 @@
+21.
+(a)
+List :: remove(int value, bool & success){
+    int index_of_target = 0;
+    success = false;
+
+    for(int i = 0; i < this->itemCount; i++){
+        if(this->array[i] == value){
+            index_of_target = i;
+            success = true;
+            break;
+        }
+    }
+
+    if(success == true){
+        int j = index_of_target + 1;
+        for(int i = index_of_target; i < this->arraySize - 1; i++){
+            this.array[i] = this.array[j];
+            j++;
+        }
+    }
+}
+
+(b)
+List::doubleArraySize(){
+    int *new_arr = int new[this->arraySize];
+    for(int i = 0; i < this->itemCount; i++){
+        this->array = new_arr[i];
+    }
+
+    delete [] p_items; // [] 表示歸還連續空間 如果非連續空間直接Delete + 變數名
+
+    p_items = new_arr;
+    free(new_arr);
+}
+
+22.
+(a)
+Void Heap::boostPriority(int i, int newPriorityValue){
+    int parent = (i - 1)/2;
+    if(i != 0){
+        if(this.items[parent] < newPriorityValue){
+            swap(this.items[parent], this.items[i]);
+            this->boostPriority(i, newPriorityValue);
+        }
+    }
+}
